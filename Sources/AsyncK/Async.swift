@@ -47,6 +47,18 @@ public func suspendAsync<T>(_ body: (_ continuation: @escaping (T) -> ()) -> ())
     return Async<T>(body)
 }
 
+public func asyncFor<S: Sequence>(_ sequence: S, _ operation: @escaping (S.Element) -> Async<Void>) -> Async<Void> {
+    var result = Async<Void>(())
+    
+    for element in sequence {
+        result = result.await { _ in
+            operation(element)
+        }
+    }
+    
+    return result
+}
+
 private func synchronized(with lock: NSRecursiveLock, _ operation: () -> ()) {
     lock.lock()
     defer { lock.unlock() }
