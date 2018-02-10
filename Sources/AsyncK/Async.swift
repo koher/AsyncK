@@ -48,15 +48,7 @@ public func suspendAsync<T>(_ body: (_ continuation: @escaping (T) -> ()) -> ())
 }
 
 public func asyncFor<S: Sequence>(_ sequence: S, _ operation: @escaping (S.Element) -> Async<Void>) -> Async<Void> {
-    var result = Async<Void>(())
-    
-    for element in sequence {
-        result = result.await { _ in
-            operation(element)
-        }
-    }
-    
-    return result
+    return asyncFor(sequence) { element, _ in operation(element) }
 }
 
 public func asyncFor<S: Sequence>(_ sequence: S, _ operation: @escaping (S.Element, _ break: @escaping () -> ()) -> Async<Void>) -> Async<Void> {
