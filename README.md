@@ -40,10 +40,20 @@ func bar(_ x: Int) -> Async<Int> {
 
 beginAsync {
     foo().await { a in
-        bar(a)
-    }.await { b -> Void in
-        print(b)
+        bar(a).await { b -> Void in
+            print(b)
+        }
     }
+}
+```
+
+It is also possible to flatten the nest inside the `beginAsync`'s trailing closure.
+
+```swift
+foo().await { a in
+    bar(a)
+}.await { b -> Void in
+    print(b)
 }
 ```
 

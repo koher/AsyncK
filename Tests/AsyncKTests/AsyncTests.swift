@@ -146,14 +146,21 @@ class AsyncTests: XCTestCase {
         
         beginAsync {
             foo().await { a in
-                bar(a)
-            }.await { b -> Void in
-                print(b)
-                /**/ result = b
-                /**/ expectation.fulfill()
+                bar(a).await { b -> Void in
+                    print(b)
+                }
             }
+            /**/ .await {
+                foo().await { a in
+                    bar(a)
+                }.await { b -> Void in
+                    print(b)
+                    /**/ result = b
+                    /**/ expectation.fulfill()
+                }
+            /**/ }
         }
-        
+
         /**/ waitForExpectations(timeout: 1.0, handler: nil)
         
         /**/ XCTAssertEqual(result, 42 * 42)
