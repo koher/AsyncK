@@ -3,6 +3,56 @@ import Dispatch
 @testable import AsyncK
 
 class AsyncTests: XCTestCase {
+    func testAsyncWhile() {
+        let expectation = self.expectation(description: "testAsyncWhile")
+        
+        var result: [Int] = []
+        
+        beginAsync {
+            var count = 1
+            
+            return asyncWhile(count <= 100) {
+                foo(count).await { value -> Void in
+                    result.append(value)
+                    count += 1
+                }
+            }.await {
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
+        
+        XCTAssertEqual(result, [Int](1...100))
+    }
+    
+    func testAsyncWhileBreak() {
+        let expectation = self.expectation(description: "testAsyncWhileBreak")
+        
+        var result: [Int] = []
+        
+        beginAsync {
+            var count = 1
+            
+            return asyncWhile(count <= 100) { `break` in
+                foo(count).await { value -> Void in
+                    if count == 20 {
+                        `break`()
+                        return
+                    }
+                    result.append(value)
+                    count += 1
+                }
+            }.await {
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
+        
+        XCTAssertEqual(result, [Int](1..<20))
+    }
+    
     func testAsyncFor() {
         let expectation = self.expectation(description: "testAsyncFor")
         
