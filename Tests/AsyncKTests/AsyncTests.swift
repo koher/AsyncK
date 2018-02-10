@@ -6,14 +6,6 @@ class AsyncTests: XCTestCase {
     func testAsyncFor() {
         let expectation = self.expectation(description: "testAsyncFor")
         
-        func foo(_ x: Int) -> Async<Int> {
-            return suspendAsync { continuation in
-                DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(arc4random() % 10))) {
-                    continuation(x)
-                }
-            }
-        }
-        
         var result: [Int] = []
         
         beginAsync {
@@ -40,6 +32,30 @@ class AsyncTests: XCTestCase {
         XCTAssertEqual(result, [Int](1...100))
     }
     
+    func testAsyncForBreak() {
+        let expectation = self.expectation(description: "testAsyncForBreak")
+        
+        var result: [Int] = []
+        
+        beginAsync {
+            asyncFor(1...100) { i, `break` in
+                foo(i).await { value -> Void in
+                    if i == 20 {
+                        `break`()
+                        return
+                    }
+                    result.append(value)
+                }
+            }.await {
+                expectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
+        
+        XCTAssertEqual(result, [Int](1..<20))
+    }
+
     func testExample() {
         /**/ let expectation = self.expectation(description: "testExample")
         /**/ var result: Int!
@@ -94,6 +110,8 @@ class AsyncTests: XCTestCase {
     }
 
     static var allTests = [
+        ("testAsyncFor", testAsyncFor),
+        ("testAsyncForBreak", testAsyncForBreak),
         ("testExample", testExample),
     ]
 }
@@ -117,5 +135,13 @@ extension Async {
             value = $0
         }
         return value!
+    }
+}
+
+func foo(_ x: Int) -> Async<Int> {
+    return suspendAsync { continuation in
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(Int(arc4random() % 10))) {
+            continuation(x)
+        }
     }
 }

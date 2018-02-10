@@ -59,6 +59,26 @@ public func asyncFor<S: Sequence>(_ sequence: S, _ operation: @escaping (S.Eleme
     return result
 }
 
+public func asyncFor<S: Sequence>(_ sequence: S, _ operation: @escaping (S.Element, _ break: @escaping () -> ()) -> Async<Void>) -> Async<Void> {
+    var result = Async<Void>(())
+    
+    var breaks = false
+    func `break`() {
+        breaks = true
+    }
+    
+    for element in sequence {
+        result = result.await { _ in
+            if breaks {
+                return Async<Void>(())
+            }
+            return operation(element, `break`)
+        }
+    }
+    
+    return result
+}
+
 private func synchronized(with lock: NSRecursiveLock, _ operation: () -> ()) {
     lock.lock()
     defer { lock.unlock() }
