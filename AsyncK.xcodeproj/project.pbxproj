@@ -31,7 +31,6 @@
 		D6BF2571202E1131001CF7B6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6BF2577202E113B001CF7B6 /* AsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncTests.swift; sourceTree = "<group>"; };
 		D6BF2578202E113B001CF7B6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D6BF2579202E113B001CF7B6 /* LinuxMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinuxMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +92,6 @@
 			isa = PBXGroup;
 			children = (
 				D6BF2576202E113B001CF7B6 /* AsyncKTests */,
-				D6BF2579202E113B001CF7B6 /* LinuxMain.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
