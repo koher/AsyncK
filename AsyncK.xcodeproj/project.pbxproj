@@ -11,6 +11,8 @@
 		D6BF2572202E1131001CF7B6 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF256F202E1131001CF7B6 /* Async.swift */; };
 		D6BF2573202E1131001CF7B6 /* AsyncK.h in Headers */ = {isa = PBXBuildFile; fileRef = D6BF2570202E1131001CF7B6 /* AsyncK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D6BF257A202E113B001CF7B6 /* AsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6BF2577202E113B001CF7B6 /* AsyncTests.swift */; };
+		D6E746602164B12D00547DFD /* Throws.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E7465F2164B12D00547DFD /* Throws.swift */; };
+		D6E746622164B34A00547DFD /* ThrowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E746612164B34A00547DFD /* ThrowsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,8 @@
 		D6BF2571202E1131001CF7B6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6BF2577202E113B001CF7B6 /* AsyncTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncTests.swift; sourceTree = "<group>"; };
 		D6BF2578202E113B001CF7B6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6E7465F2164B12D00547DFD /* Throws.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Throws.swift; sourceTree = "<group>"; };
+		D6E746612164B34A00547DFD /* ThrowsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				D6BF256F202E1131001CF7B6 /* Async.swift */,
+				D6E7465F2164B12D00547DFD /* Throws.swift */,
 				D6BF2570202E1131001CF7B6 /* AsyncK.h */,
 				D6BF2571202E1131001CF7B6 /* Info.plist */,
 			);
@@ -100,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				D6BF2577202E113B001CF7B6 /* AsyncTests.swift */,
+				D6E746612164B34A00547DFD /* ThrowsTests.swift */,
 				D6BF2578202E113B001CF7B6 /* Info.plist */,
 			);
 			path = AsyncKTests;
@@ -217,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E746602164B12D00547DFD /* Throws.swift in Sources */,
 				D6BF2572202E1131001CF7B6 /* Async.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E746622164B34A00547DFD /* ThrowsTests.swift in Sources */,
 				D6BF257A202E113B001CF7B6 /* AsyncTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
