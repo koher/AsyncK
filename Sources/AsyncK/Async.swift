@@ -20,7 +20,7 @@ public class Async<Value> {
         }
     }
     
-    private func get(_ handler: @escaping (Value) -> ()) {
+    internal func get(_ handler: @escaping (Value) -> ()) {
         synchronized(with: lock) {
             if let value = self.value {
                 handler(value)
