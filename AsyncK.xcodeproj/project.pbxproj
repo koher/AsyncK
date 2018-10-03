@@ -15,6 +15,7 @@
 		D6E746622164B34A00547DFD /* ThrowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E746612164B34A00547DFD /* ThrowsTests.swift */; };
 		D6E746642164B80400547DFD /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E746632164B80400547DFD /* Functions.swift */; };
 		D6E746662164B81700547DFD /* Loops.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E746652164B81700547DFD /* Loops.swift */; };
+		D6E746682164C38D00547DFD /* AsyncThrows.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6E746672164C38D00547DFD /* AsyncThrows.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		D6E746612164B34A00547DFD /* ThrowsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowsTests.swift; sourceTree = "<group>"; };
 		D6E746632164B80400547DFD /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		D6E746652164B81700547DFD /* Loops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loops.swift; sourceTree = "<group>"; };
+		D6E746672164C38D00547DFD /* AsyncThrows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncThrows.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				D6BF256F202E1131001CF7B6 /* Async.swift */,
+				D6E746672164C38D00547DFD /* AsyncThrows.swift */,
 				D6E746632164B80400547DFD /* Functions.swift */,
 				D6E746652164B81700547DFD /* Loops.swift */,
 				D6E7465F2164B12D00547DFD /* Throws.swift */,
@@ -232,6 +235,7 @@
 				D6E746602164B12D00547DFD /* Throws.swift in Sources */,
 				D6BF2572202E1131001CF7B6 /* Async.swift in Sources */,
 				D6E746642164B80400547DFD /* Functions.swift in Sources */,
+				D6E746682164C38D00547DFD /* AsyncThrows.swift in Sources */,
 				D6E746662164B81700547DFD /* Loops.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
